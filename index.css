@@ -1,0 +1,17 @@
+body {
+  padding-top: 50px;
+}
+
+button {
+    margin: 10px;
+  }
+/* Create four equal columns that floats next to eachother */
+
+.image {
+  float: left;
+  width: 33%;
+}
+
+img:hover {
+  box-shadow: 2px 2px;
+}
