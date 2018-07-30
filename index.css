@@ -8,7 +8,7 @@ button {
 /* Create four equal columns that floats next to eachother */
 
 .image {
-  float: left;
+  display: inline-block;
   width: 33%;
 }
 

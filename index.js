@@ -1,13 +1,19 @@
-const GITHUB_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromApi(searchTerm, callback) {
 	console.log(`display searchTerm from getDataFromApi ${searchTerm}`);
-	const query = {
-		part: 'snippet',
-		key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c',
-		q: `${searchTerm} in:name`,
-	};
-	$.getJSON(GITHUB_SEARCH_URL, query, callback);
+	const settings = {
+    url: YOUTUBE_SEARCH_URL,
+    data: {
+      q: `${searchTerm} in:name`,
+    part:'snippet',
+    key: 'AIzaSyDE2RS2B27KuUp-G6TWpRFtLpySC36Zf3c'
+    },
+    dataType: 'json',
+    type: 'GET',
+    success: callback
+  };
+  $.ajax(settings);
 }
 
 function renderResult(result, index) {
@@ -21,7 +27,7 @@ function renderResult(result, index) {
      <p><a href="https://www.youtube.com/channel/${result.snippet
 				.channelId}" target="_blank">more from this channel </a></p>
      </div>
-   
+
     `;
 }
 
